@@ -1,6 +1,6 @@
 # Needleman-Wunsch score table (global alignment), scores only for now.
 
-MATCH, MISMATCH, GAP = 1, -1, -2   # same scoring as our hand example
+MATCH, MISMATCH, GAP = 1, -1, -3   # same scoring as our hand example
 
 
 def score_table(seq1, seq2):
@@ -64,7 +64,9 @@ def trace_back(table, seq1, seq2):
 
 
 if __name__ == "__main__":
-    s1, s2 = "GATATCAAA", "GATATGCCAA"
+    s1, s2 = "ACT", "AGT"
+    for row in score_table("ACT", "AGT"):
+        print(row)
     top, bottom = trace_back(score_table(s1, s2), s1, s2)
     print(top)
     print(bottom)
